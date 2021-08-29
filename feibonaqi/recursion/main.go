@@ -6,6 +6,7 @@ import "fmt"
 // 0,1,1,2,3,5,8,13,21,34
 
 // 除了第0位和第一位是固定值之外，后面每一位的值都可以表示为f(n-1)+f(n-2)，所以可以使用递归求解，递归的条件值为n=0,n=1
+// 时间复杂度为2^n，空间复杂度为1
 func feibonaqiByRecursion(num int) int {
 	// 当给定位为0时，直接返回0
 	if num == 0 {
@@ -20,6 +21,7 @@ func feibonaqiByRecursion(num int) int {
 }
 
 // 上面递归效率很差，因为会重复计算，例如f(8)=f(7)+f(6)，需要计算f(7)和f(6)的值，f(7)又需要计算f(6)和f(5)的值，这样都会计算f(6)的值，所以可以使用数组将重复计算的值保留起来
+// 时间复杂度为n，空间复杂度为n
 func feibonaqiByRecursionYouHua(num int) int {
 	// 初始化一个切片，切片长度为斐波那契数列长度，因为斐波那契数列从0开始，所以加1
 	duplicateList := make([]int, num+1)
