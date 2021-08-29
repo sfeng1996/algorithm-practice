@@ -19,6 +19,28 @@ func feibonaqiByRecursion(num int) int {
 	return feibonaqiByRecursion(num-1) + feibonaqiByRecursion(num-2)
 }
 
+// 上面递归效率很差，因为会重复计算，例如f(8)=f(7)+f(6)，需要计算f(7)和f(6)的值，f(7)又需要计算f(6)和f(5)的值，这样都会计算f(6)的值，所以可以使用数组将重复计算的值保留起来
+func feibonaqiByRecursionYouHua(num int) int {
+	// 初始化一个切片，切片长度为斐波那契数列长度，因为斐波那契数列从0开始，所以加1
+	duplicateList := make([]int, num+1)
+	// 当给定位为0时，直接返回0
+	if num == 0 {
+		return 0
+	}
+	// 当给定位为1时，直接返回1
+	if num == 1 {
+		return 1
+	}
+	// 保存重复值，切片初始化未赋值，默认值为0，所以如果值不等于0的话，说明这位已经在数组里有保存了，直接返回
+	if duplicateList[num] != 0 {
+		return duplicateList[num]
+	}
+	// 递归
+	return feibonaqiByRecursionYouHua(num-1) + feibonaqiByRecursionYouHua(num-2)
+}
+
 func main() {
 	fmt.Println(feibonaqiByRecursion(8))
+	// 优化后
+	fmt.Println(feibonaqiByRecursionYouHua(8))
 }
