@@ -9,7 +9,7 @@ import "fmt"
 // 定义左指针，右指针, 如果连个指针指向的值之和等于target，直接返回
 // 如果和大于target, 说明和应该在右指针左边，需要将右指针减一，进行下轮遍历
 // 如果和小于target， 说明和应该在左指针右边，需要将左指针加一，进行下轮遍历
-func sumOfTwoNumsByBinarySearch(list []int, target int) []int {
+func sumOfTwoNumsByDublePoint(list []int, target int) []int {
 	// 定义左指针和右指针
 	low := 0
 	high := len(list) - 1
@@ -28,5 +28,5 @@ func sumOfTwoNumsByBinarySearch(list []int, target int) []int {
 
 func main() {
 	list := []int{1,3,4,4,5,7}
-	fmt.Println(sumOfTwoNumsByBinarySearch(list, 10))
+	fmt.Println(sumOfTwoNumsByDublePoint(list, 10))
 }
