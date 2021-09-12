@@ -16,7 +16,7 @@ type BinaryTree struct {
 	Right *BinaryTree
 }
 
-// 打印栈顶的元素
+// 打印第一次成为栈顶的元素
 func preorderTraversal(root *BinaryTree) {
 	if root == nil {
 		return
