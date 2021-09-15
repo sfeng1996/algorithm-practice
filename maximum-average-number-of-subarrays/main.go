@@ -34,7 +34,7 @@ func max(num1, num2 int) int {
 	}
 }
 func main() {
-	list := []int{1,12,-5,-6,50,3}
+	list := []int{1,12,-5,-6,50,36}
 	k := 4
 	fmt.Println(maxAverage(list, k))
 }
